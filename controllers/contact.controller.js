@@ -1,6 +1,9 @@
-// controllers/contact.controller.js
+//controllers/contact.controller.js
+//Author: Mason Kerr
+//Student ID: 301517873
 const Contact = require('../models/contact.model');
 
+//Return all
 exports.findAll = async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -10,6 +13,7 @@ exports.findAll = async (req, res) => {
   }
 };
 
+//Return by id
 exports.findOne = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
@@ -20,6 +24,7 @@ exports.findOne = async (req, res) => {
   }
 };
 
+//add record
 exports.create = async (req, res) => {
   try {
     const { firstname, lastname, email } = req.body;
@@ -31,6 +36,7 @@ exports.create = async (req, res) => {
   }
 };
 
+//modify record, keep id
 exports.update = async (req, res) => {
   try {
     const contact = await Contact.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -41,6 +47,7 @@ exports.update = async (req, res) => {
   }
 };
 
+//remove record by id
 exports.deleteOne = async (req, res) => {
   try {
     const contact = await Contact.findByIdAndDelete(req.params.id);
@@ -51,6 +58,7 @@ exports.deleteOne = async (req, res) => {
   }
 };
 
+//Delete all records
 exports.deleteAll = async (req, res) => {
   try {
     await Contact.deleteMany({});

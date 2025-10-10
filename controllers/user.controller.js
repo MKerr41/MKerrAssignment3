@@ -1,7 +1,9 @@
 //controllers/user.controller.js
+//Author: Mason Kerr
+//Student ID: 301517873
 const User = require('../models/user.model');
 
-
+//get all records
 exports.findAll = async (req, res) => {
   try {
     const users = await User.find();
@@ -11,6 +13,7 @@ exports.findAll = async (req, res) => {
   }
 };
 
+//get record by id
 exports.findOne = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -21,6 +24,7 @@ exports.findOne = async (req, res) => {
   }
 };
 
+//add record
 exports.create = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -32,6 +36,7 @@ exports.create = async (req, res) => {
   }
 };
 
+//modify record by id
 exports.update = async (req, res) => {
   try {
     const updates = { ...req.body, updated: Date.now() };
@@ -43,6 +48,7 @@ exports.update = async (req, res) => {
   }
 };
 
+//remove record by id
 exports.deleteOne = async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
@@ -53,6 +59,7 @@ exports.deleteOne = async (req, res) => {
   }
 };
 
+//remove all records
 exports.deleteAll = async (req, res) => {
   try {
     await User.deleteMany({});

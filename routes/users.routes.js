@@ -1,4 +1,6 @@
 //routes/users.routes.js
+//Author: Mason Kerr
+//Student ID: 301517873
 const express = require('express');
 const router = express.Router();
 const users = require('../controllers/user.controller');

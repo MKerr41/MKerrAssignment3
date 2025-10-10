@@ -1,4 +1,6 @@
 //models/user.model.js
+//Author: Mason Kerr
+//Student ID: 301517873
 const mongoose = require('mongoose');
 
 //Schema for users
